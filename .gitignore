@@ -1,0 +1,3 @@
+# Ignore AWS CLI installation files
+/awscli-bundle*
+/aws
