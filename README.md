@@ -12,21 +12,21 @@ Before using the CloudUploader CLI, ensure you have the following prerequisites 
 - **AWS CLI**: Install the AWS Command Line Interface by following the instructions [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html).
 - **Bash Shell**: The tool is built using bash scripting, so make sure you have bash installed on your system.
 - **AWS S3 bucket created**
-To create an AWS S3 bucket using the AWS CLI, you can use the `aws s3api create-bucket` command. Here's the basic syntax:
+    To create an AWS S3 bucket using the AWS CLI, you can use the `aws s3api create-bucket` command. Here's the basic syntax:
 
         ```bash
         aws s3api create-bucket --bucket BUCKET_NAME --region REGION
         ```
 
-Replace `BUCKET_NAME` with the name you want to give to your bucket and `REGION` with the AWS region where you want to create the bucket. Additionally, you can specify additional options such as ACLs, encryption, and tags.
+    Replace `BUCKET_NAME` with the name you want to give to your bucket and `REGION` with the AWS region where you want to create the bucket. Additionally, you can specify additional options such as ACLs, encryption, and tags.
 
-Here's an example command to create an S3 bucket named `my-bucket` in the `us-east-1` region:
+    Here's an example command to create an S3 bucket named `my-bucket` in the `us-east-1` region:
 
         ```bash
         aws s3api create-bucket --bucket my-bucket --region us-east-1
         ```
 
-Refer to the [AWS CLI documentation](https://docs.aws.amazon.com/cli/latest/reference/s3api/create-bucket.html) for more options and detailed information on creating S3 buckets using the AWS CLI.
+    Refer to the [AWS CLI documentation](https://docs.aws.amazon.com/cli/latest/reference/s3api/create-bucket.html) for more options and detailed information on creating S3 buckets using the AWS CLI.
 
 ## Setup
 
