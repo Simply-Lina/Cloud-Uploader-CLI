@@ -11,8 +11,25 @@ Before using the CloudUploader CLI, ensure you have the following prerequisites 
 
 - **AWS CLI**: Install the AWS Command Line Interface by following the instructions [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html).
 - **Bash Shell**: The tool is built using bash scripting, so make sure you have bash installed on your system.
+- **AWS S3 bucket created**
+        To create an AWS S3 bucket using the AWS CLI, you can use the `aws s3api create-bucket` command. Here's the basic syntax:
+
+        ```bash
+        aws s3api create-bucket --bucket BUCKET_NAME --region REGION
+        ```
+
+        Replace `BUCKET_NAME` with the name you want to give to your bucket and `REGION` with the AWS region where you want to create the bucket. Additionally, you can specify additional options such as ACLs, encryption, and tags.
+
+        Here's an example command to create an S3 bucket named `my-bucket` in the `us-east-1` region:
+
+        ```bash
+        aws s3api create-bucket --bucket my-bucket --region us-east-1
+        ```
+
+        Refer to the [AWS CLI documentation](https://docs.aws.amazon.com/cli/latest/reference/s3api/create-bucket.html) for more options and detailed information on creating S3 buckets using the AWS CLI.
 
 ## Setup
+
 ### Download the tool as a package and add it to your path
 Save the script named as ``install-aws-cli-fileuploader.sh``, and make it executable using chmod +x ``install-aws-cli-fileuploader.sh``. Users can then run ./install-aws-cli-fileuploader to install the CloudUploader CLI.
 ### Manual Setup
@@ -81,3 +98,27 @@ If you experience issues with file encryption, ensure that OpenSSL is installed 
 ```bash
 ./Uploadfile1.sh.sh /path/to/your/file.txt --sync
 ```
+
+To clean up the project by deleting objects and an S3 bucket, you can follow these steps:
+
+### Using AWS CLI for Cleanup:
+
+If you prefer to use the AWS CLI for cleanup, you can use the following commands:
+
+1. To delete objects in an S3 bucket:
+
+    ```bash
+    aws s3 rm s3://bucket-name --recursive
+    ```
+
+    Replace `bucket-name` with the name of your S3 bucket. The `--recursive` option ensures that all objects in the bucket are deleted.
+
+2. To delete an empty S3 bucket:
+
+    ```bash
+    aws s3 rb s3://bucket-name
+    ```
+
+    Replace `bucket-name` with the name of your S3 bucket. This command will only work if the bucket is empty.
+
+Remember to exercise caution when performing deletion operations, as they cannot be undone. Always double-check that you are deleting the correct objects and buckets.
